@@ -3,7 +3,7 @@
 
 :root{
     --line-borderf: #3498db;
-    --line-borderf: #e0e0e0;
+    --line-bordere: #e0e0e0;
 
     --font:'DM Sans', sans-serif;
 }
@@ -29,4 +29,54 @@ body{
 .progress-container{
     display: flex;
     justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+.progress-container::before{
+    content: "";
+    background-color: var(--line-bordere);
+    position: absolute;
+    left: 0;
+    transform: translateY(-50);
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition: 0.5 ease;
+}
+.circle{
+    background-color: var(--line-bordere);
+    color: grey;
+    border-radius: 50%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--line-borderf);
+    transition:  .5s ease;
+}
+.circle.active{
+    border-color: var(--line-borderf);
+}
+.btn{
+    background-color: var(--line-borderf);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font);
+    padding:  8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+.btn:active{
+    transform: scale(0.98);
+}
+.btn:focus{
+    outline: 0;
+}
+.btn:disabled{
+    background-color: var(--line-bordere);
+    cursor: not-allowed;
 }
